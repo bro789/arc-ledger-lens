@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Arc-native USDC balance, transfer and gas evidence. Read-only. Wallet-free.">
+  <title>Arc Ledger Lens — One balance. Clear evidence.</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./rpc.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">◒</span><span>Arc <strong>Ledger Lens</strong></span></a>
+      <span class="network"><span class="dot"></span> ARC MAINNET · 5042</span>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="eyebrow">USDC NATIVE / DEVELOPER EVIDENCE</div>
+        <h1>One balance.<br><span>Clear evidence.</span></h1>
+        <p class="hero-copy">Arc exposes USDC through two decimal interfaces and two event streams. Read the chain once, reconcile them correctly, and take the evidence with you.</p>
+        <div class="hero-controls"><button id="demo-button" class="button primary">Explore recorded mainnet evidence <span aria-hidden="true">↗</span></button><span class="small-note">No wallet connection. No gas spent.</span></div>
+        <div class="principles"><span>18 / 6 <small>decimals, reconciled</small></span><span>1 <small>canonical movement stream</small></span><span>0 <small>signatures requested</small></span></div>
+      </section>
+      <div class="tabs" role="tablist" aria-label="Audit tools">
+        <button class="tab active" id="tab-account" role="tab" aria-selected="true" aria-controls="panel-account" data-panel="account">01 <span>Balance & gas budget</span></button>
+        <button class="tab" id="tab-transaction" role="tab" aria-selected="false" aria-controls="panel-transaction" data-panel="transaction">02 <span>Transaction audit</span></button>
+        <button class="tab" id="tab-verify" role="tab" aria-selected="false" aria-controls="panel-verify" data-panel="verify">03 <span>Verify evidence</span></button>
+      </div>
+      <section class="panel" id="panel-account" role="tabpanel" aria-labelledby="tab-account">
+        <div class="panel-intro"><h2>A single USDC balance, explained.</h2><p>Both balance calls use the same block number. Its identity is checked again before the snapshot is accepted.</p></div>
+        <form id="account-form">
+          <label for="account-address">Public Arc address</label><input id="account-address" name="address" type="text" placeholder="0x…" required spellcheck="false" autocomplete="off" maxlength="42" pattern="0x[0-9a-fA-F]{40}">
+          <div class="input-grid">
+            <div><label for="amount">Hypothetical transfer (USDC)</label><input id="amount" name="amount" type="text" value="1" inputmode="decimal" required></div>
+            <div><label for="gas-limit">Gas limit</label><input id="gas-limit" name="gas_limit" type="number" value="21000" min="21000" max="30000000" required></div>
+            <div><label for="fee-cap">Fee cap (Gwei) <span class="optional">optional</span></label><input id="fee-cap" name="max_fee_gwei" type="text" placeholder="Current RPC suggestion" inputmode="decimal"></div>
+          </div>
+          <div class="form-footer"><p>The budget includes transfer + maximum gas reserve. It is an arithmetic check; no transaction is prepared or simulated.</p><button class="button dark" type="submit">Read mainnet balance →</button></div>
+        </form>
+      </section>
+      <section class="panel" id="panel-transaction" role="tabpanel" aria-labelledby="tab-transaction" hidden>
+        <div class="panel-intro"><h2>Unpack a transaction, without double counting.</h2><p>Match native system and ERC-20 events as a multiset, then derive exact gas from the receipt.</p></div>
+        <form id="transaction-form"><label for="transaction-hash">Transaction hash</label><input id="transaction-hash" name="hash" type="text" placeholder="0x…" required spellcheck="false" autocomplete="off" maxlength="66" pattern="0x[0-9a-fA-F]{64}"><div class="form-footer"><p>A missing receipt stays “unavailable.” This tool does not guess whether a transaction failed or cost zero.</p><button class="button dark" type="submit">Audit transaction →</button></div></form>
+      </section>
+      <section class="panel" id="panel-verify" role="tabpanel" aria-labelledby="tab-verify" hidden>
+        <div class="panel-intro"><h2>Evidence that can be checked again.</h2><p>Recompute the digest, bind the display to its recorded RPC responses, and verify every amount with integer arithmetic.</p></div>
+        <form id="verify-form"><label for="evidence-file">Exported Arc Ledger Lens JSON</label><input id="evidence-file" type="file" accept=".json,application/json" required><div class="form-footer"><p>This checks file integrity and calculations. It does not establish RPC authenticity or verify validator signatures.</p><button class="button dark" type="submit">Verify evidence →</button></div></form>
+      </section>
+      <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+      <section id="results" class="results" aria-label="Audit results" hidden></section>
+      <section class="method"><div class="eyebrow">HOW IT WORKS</div><div class="method-grid"><article><span>01 / PIN</span><h3>Same block. Same funds.</h3><p>Native units use 18 decimals. The ERC-20 view uses 6. The tiny residual belongs to gas precision, not a second asset.</p></article><article><span>02 / RECONCILE</span><h3>Two logs. One transfer.</h3><p>Use the system emitter for canonical movements. An ERC-20 mirror supplies corroborating evidence, not more money.</p></article><article><span>03 / EXPORT</span><h3>Bring the raw readings.</h3><p>A JSON bundle contains requests, responses, block identity, calculations, source references and a SHA-256 integrity digest.</p></article></div></section>
+    </main>
+    <footer><span>Arc Ledger Lens · Open-source developer tooling</span><div><a href="./LICENSE">MIT License</a><a href="https://docs.arc.io/arc/references/usdc-system-events" target="_blank" rel="noopener noreferrer">Arc event reference ↗</a><a href="https://docs.arc.io/arc/references/rpc-endpoints" target="_blank" rel="noopener noreferrer">Network reference ↗</a></div><p>Read-only observations from Circle's public RPC. Independent consensus proof is outside this tool's scope.</p></footer>
+  </div>
+</body>
+</html>
