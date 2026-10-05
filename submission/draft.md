@@ -12,12 +12,16 @@
 
 **Future work:** Optional independent-node/certificate verification and a small reconciliation library for wallet/indexer pipelines. These are planned extensions, not current functionality.
 
-**Required fields not filled:**
+**Public application fields:**
 
-- Live public app URL: **not published yet**.
-- Public repository: **not published yet**.
-- Public builder profile: **owner profile required; do not invent one**.
-- Mainnet deployment status: **the app reads real Arc mainnet through the official public RPC. It is currently local; after static hosting, enter the real hosted URL. No new smart contract or transaction was deployed by this project. Whether a hosted read-only app satisfies this program's deployment clause remains unconfirmed**.
+- Project name: **Arc Ledger Lens**.
+- Logo: **original MIT-licensed `assets/logo.png`, 480×480 PNG**.
+- Category: **Crypto / Web3 developer tooling**.
+- Live public app URL: [https://bro789.github.io/arc-ledger-lens/](https://bro789.github.io/arc-ledger-lens/).
+- Public repository: [https://github.com/bro789/arc-ledger-lens](https://github.com/bro789/arc-ledger-lens).
+- Public builder profile / social link: [https://github.com/bro789](https://github.com/bro789).
+- Vision: **Help wallet and indexer developers avoid Arc-specific USDC accounting errors before they reach user ledgers, using a wallet-free workbench with reproducible mainnet observations and portable evidence.**
+- Mainnet deployment status: **the publicly hosted app reads real Arc mainnet through the official public RPC; anonymous account and receipt reads have been checked through the hosted page. No new smart contract or transaction was deployed by this project. Whether a hosted read-only app satisfies this program's deployment clause remains unconfirmed**.
 - Recipient wallet and conditional payout verification: **owner-only external step**.
 
-Before submission, replace the missing fields with the actual public app, repository and builder-profile URLs. Describe the read-only mainnet integration exactly as implemented and let the program assess that route; prior organizer confirmation has not been obtained. Do not claim a custom mainnet contract deployment, confirmed eligibility, a submitted application or an award.
+The public URLs and genuine builder profile are now available. Describe the read-only mainnet integration exactly as implemented and let the program assess that route; prior organizer confirmation has not been obtained. Do not claim a custom mainnet contract deployment, confirmed eligibility, a submitted application or an award. The entrant's authorized DoraHacks account and any required final rules confirmation remain separate submission steps.

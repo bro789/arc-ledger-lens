@@ -2,6 +2,8 @@
 
 Arc-native USDC accounting evidence for developers, wallet teams and indexer builders.
 
+[Open the live application](https://bro789.github.io/arc-ledger-lens/) · [Public source repository](https://github.com/bro789/arc-ledger-lens) · [Builder profile](https://github.com/bro789)
+
 Arc exposes one USDC balance through native 18-decimal and ERC-20 6-decimal interfaces. It also emits two transfer streams for ERC-20 interface calls. Conventional EVM integration code can double a balance or count a transfer twice. Ledger Lens makes those errors visible against actual mainnet data, preserves gas precision, and exports source observations with independently checkable arithmetic.
 
 ## Run locally
@@ -86,11 +88,11 @@ Circle's public RPC may observe queried public identifiers, rate limit or be una
 
 ## Arc Microgrants readiness
 
-This is a working **local/mainnet-connected read-only application**, not a publicly deployed or submitted grant Build. No wallet has been created and no contract has been deployed by this project. The owner has separately registered for the Arc program.
+This is a working **publicly hosted, mainnet-connected read-only application** at [bro789.github.io/arc-ledger-lens](https://bro789.github.io/arc-ledger-lens/), with its [source repository](https://github.com/bro789/arc-ledger-lens) published. Anonymous mainnet account and transaction reads were checked through the public site. No wallet has been created and no contract has been deployed by this project. The owner has separately registered for the Arc program; a grant Build has not been submitted by this project task.
 
 The official program requires a working Arc mainnet deployment, a public app URL, public repository, builder profile and (after selection) private payout verification. Whether a hosted read-only mainnet tool satisfies its deployment wording remains unknown. Once the real public URLs and genuine builder profile are ready, the project can be submitted with an accurate description of its read-only integration for the program to judge. It must not claim a deployed contract or confirmed eligibility. A contract deployment would require mainnet USDC gas, for which no approved zero-budget route is established; this project does not spend funds to manufacture deployment evidence.
 
-Remaining external steps: publish this repository and static site using an authorized owner account, use the owner's genuine builder profile, submit the Build once through an authorized account with honest deployment status, and complete recipient/wallet verification only if conditionally selected. Any terms required at submission still need the owner's appropriate confirmation. The submission copy and short demo script are in `submission/`; insert real URLs before use. Organizer clearance has not been requested and is not treated as a prerequisite for submitting an honestly described read-only candidate.
+The app URL, source repository and genuine [builder profile](https://github.com/bro789) are ready. Remaining external steps are to submit the Build once through an authorized account with honest deployment status, and complete recipient/wallet verification only if conditionally selected. Any terms required at submission still need the owner's appropriate confirmation. The submission copy and short demo script are in `submission/`. Organizer clearance has not been requested and is not treated as a prerequisite for submitting an honestly described read-only candidate.
 
 ## Sources and licenses
 
