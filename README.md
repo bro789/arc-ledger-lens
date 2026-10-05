@@ -8,10 +8,9 @@ Arc exposes one USDC balance through native 18-decimal and ERC-20 6-decimal inte
 
 ## Run locally
 
-No package installation, wallet, private key, AI API, RPC key or paid service is needed.
+No package installation, wallet, private key, AI API, RPC key or paid service is needed. Open a terminal in the cloned repository root or extracted source ZIP directory containing `server.py`.
 
 ```powershell
-cd dorahacks/arc
 python server.py --port 8787
 ```
 
